@@ -1,17 +1,17 @@
 import re, sys
 
-def main(a, b):
+def main(entrada, saida):
 	try:
-		arquivo = open(a, 'r', encoding='utf8')
+		arquivo = open(entrada, 'r', encoding='utf8')
 		arquivo = re.findall("[\w']+", arquivo.read())
 		arquivo = [i.lower() for i in arquivo]
 		arquivo = [(i, arquivo.count(i)) for i in set(arquivo)]
 		arquivo.sort(key=lambda i: i[1], reverse=True)
 
-		saida = open(b, 'a')
+		arquivo_saida = open(saida, 'a')
 		for i in arquivo:
-			saida.write(str(i)+'\n')
-		saida.close()
+			arquivo_saida.write(str(i)+'\n')
+		arquivo_saida.close()
 
 	except FileNotFoundError:
 		print(f'Arquivo a ser lido não encontrado. Tente: "py {parametros[0]} <path_leitura> <path_saída>"')
