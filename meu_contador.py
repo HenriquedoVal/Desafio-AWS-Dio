@@ -25,6 +25,6 @@ def main():
 
 if __name__ == '__main__':
 	parametros = sys.argv
-	msg_err = f'Necessário o uso de parâmetros. Tente: "python3 {parametros[0]} <path_leitura> <path_saída>"'	
+	msg_err = f'Necessário o uso dos parâmetros. Tente: "python3 {parametros[0]} <path_leitura> <path_saída>"'	
 	main()
 	
