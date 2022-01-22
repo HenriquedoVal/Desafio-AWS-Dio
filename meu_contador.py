@@ -8,7 +8,7 @@ def main():
 		if len(parametros) != 3: raise IndexError
 		
 		arquivo = open(parametros[1], 'r', encoding='utf8')
-		dados = re.findall("[\w']+", arquivo.read())
+		dados = re.findall("[\w]+", arquivo.read())
 		arquivo.close()
 
 		dados = [i.lower() for i in dados]
