@@ -1,7 +1,9 @@
 import re, sys
 
 def main():
-	global parametros
+	parametros = sys.argv
+	msg_err = f'Necessário o uso dos parâmetros. Tente: "python3 {parametros[0]} <path_leitura> <path_saída>"'
+
 	try:
 		if len(parametros) != 3: raise IndexError
 		
@@ -24,7 +26,4 @@ def main():
 		print(msg_err)
 
 if __name__ == '__main__':
-	parametros = sys.argv
-	msg_err = f'Necessário o uso dos parâmetros. Tente: "python3 {parametros[0]} <path_leitura> <path_saída>"'	
 	main()
-	
