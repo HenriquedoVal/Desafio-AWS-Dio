@@ -23,12 +23,10 @@ def main():
 		arquivo_saida = open(parametros[2], 'a', encoding='utf8')
 		arquivo_saida.write('Re'.ljust(30)+ '| Brutos\n'+'-'*100 + '\n')
 
-		for i in range(len(max(dados, dados_brutos, key=len))):
-			if i < len(dados) and i < len(dados_brutos):
+		for i in range(len(dados_brutos)):
+			try:
 				arquivo_saida.write(f'{dados[i][0]}: {dados[i][1]}'.ljust(30) + '| ' + f'{dados_brutos[i][0]}: {dados_brutos[i][1]}\n')
-			elif i < len(dados) and i >= len(dados_brutos):
-				arquivo_saida.write(f'{dados[i][0]}: {dados[i][1]}\n')
-			elif i >= len(dados) and i < len(dados_brutos):
+			except IndexError:
 				arquivo_saida.write(' '*30 + '| ' + f'{dados_brutos[i][0]}: {dados_brutos[i][1]}\n')
 				
 		arquivo_saida.close()
