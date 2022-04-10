@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movies Control</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'astyle.css' %}">
+</head>
+<body>
+    <div>
+        <h1>Movies Control</h1>
+        <table>
+            <tr>
+                <th>Name</th><th>Type</th><th>Episodes</th><th>Current Ep.</th><th>Last View</th>
+            </tr>
+            {% for i in movies %}
+            <tr>
+                <td>{{ i.name }}</td>
+
+                {% if i.type %}
+                <td>Movie</td>
+                {% else %}
+                <td>Series</td>
+                {% endif %}
+
+                {% if i.episodes %}
+                <td>{{ i.episodes }}</td>
+                {% else %}
+                <td>-</td>
+                {% endif %}
+
+                {% if i.curr_ep %}
+                <td>{{ i.curr_ep }}</td>
+                {% else %}
+                <td>-</td>
+                {% endif %}
+
+                <td>{{ i.get_data }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+</body>
+</html>
